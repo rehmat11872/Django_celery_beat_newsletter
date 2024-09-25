@@ -140,3 +140,12 @@ class ProfileDeleteView(LoginRequiredMixin, View):
         user.delete()
         messages.success(request, 'Account deleted, what a pity')
         return redirect('home')
+
+
+
+class NewsletterSubscribeView(LoginRequiredMixin, View):
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        user.profile.newsletter_subscribed = not user.profile.newsletter_subscribed
+        user.profile.save()
+        return redirect('profile-settings')

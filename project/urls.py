@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', home_view, name='home'),
     path('', include('users.urls')),
+     path('', include('board.urls')),
     path('@<username>/', ProfileView.as_view(), name="profile"),
 
 ]

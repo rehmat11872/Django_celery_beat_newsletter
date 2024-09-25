@@ -9,6 +9,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='avatars/', null=True, blank=True)
     displayname = models.CharField(max_length=50, null=True, blank=True)
     info = models.TextField(null=True, blank=True)
+    newsletter_subscribed = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.user)
